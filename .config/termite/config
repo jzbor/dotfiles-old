@@ -1,0 +1,7 @@
+[options]
+
+font = Hack Regular 11
+
+[colors]
+foreground = #dcdccc
+background  = #3f3f3f
