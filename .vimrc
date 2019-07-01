@@ -41,4 +41,3 @@ set backspace=indent,eol,start	" Backspace behaviour
 :syntax on
 
 set mouse=a
-
