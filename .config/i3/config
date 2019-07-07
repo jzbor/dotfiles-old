@@ -252,6 +252,7 @@ bindsym $mod+Tab move workspace to output right
 exec --no-startup-id compton
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id conky
+#exec ~/.config/polybar/launch.sh
 #exec spotify 
 #exec evolution
 
@@ -278,25 +279,25 @@ client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color				#00ff00
 hide_edge_borders both
 
 # i3bar
-bar {
-	status_command i3status
-	position top
-	tray_output primary
-	tray_padding 0 
-	height 25
-	colors{
-		background $bg-color
-		separator $text-color
-		#                       border                  background              text
-		focused_workspace		$sec-color    			$bg-color      			$sec-color
-		active_workspace		$bg-color      			$bg-color      			$text-color
-		inactive_workspace		$bg-color      			$bg-color      			$inactive-text-color
-		urgent_workspace		$bg-color    			$bg-color      			$sec-color
-	}
-}
+#bar {
+#	status_command i3status
+#	position top
+#	tray_output primary
+#	tray_padding 0 
+#	height 25
+#	colors{
+#		background $bg-color
+#		separator $text-color
+#		#                       border                  background              text
+#		focused_workspace		$sec-color    			$bg-color      			$sec-color
+#		active_workspace		$bg-color      			$bg-color      			$text-color
+#		inactive_workspace		$bg-color      			$bg-color      			$inactive-text-color
+#		urgent_workspace		$bg-color    			$bg-color      			$sec-color
+#	}
+#}
 	
 # Polybar
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #i3lock
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
