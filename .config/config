@@ -18,20 +18,21 @@
 [color]
 
 ; Active Shade 
-shade1 = #0D47A1
-shade2 = #1565C0
-shade3 = #1976D2
-shade4 = #1E88E5
-shade5 = #2196F3
-shade6 = #42A5F5
-shade7 = #64B5F6
-shade8 = #90CAF9
+shade1 = #311B92
+shade2 = #4527A0
+shade3 = #512DA8
+shade4 = #5E35B1
+shade5 = #673AB7
+shade6 = #7E57C2
+shade7 = #9575CD
+shade8 = #B39DDB
 
 ;; Active Colors
 bground = #1D1F28
 fground = #f7f7f7
 ;borderbg = #f7f7f7
-accent = #1E88E5
+accent = #5E35B1
+modulebg = #5E35B1
 modulefg = #f7f7f7
 modulefg-alt = #f7f7f7
 
@@ -72,7 +73,7 @@ blue-gray = #546e7a
 
 [bar/main]
 
-monitor =
+monitor = LVDS1
 monitor-fallback =
 monitor-strict = false
 override-redirect = false
@@ -105,13 +106,14 @@ padding = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "Misc Termsyn:size=12;2"
+font-0 = "Quicksand:size=10:weight=bold;2"
 font-1 = "Wuncon Siji:size=12;2"
 font-2 = Iosevka Nerd Font:style=Medium:size=16;3
+font-3 = Iosevka Nerd Font:style=Medium:size=10;3
 
-modules-left = launcher left1 title left2
+modules-left = powermenu leftneg title leftpos
 modules-center = workspaces
-modules-right = right7 colors right6 alsa right5 battery right4 backlight right3 network right2 date right1 powermenu
+modules-right = rightpos alsa rightneg battery rightpos temperature rightneg network rightpos date
 
 separator =
 spacing = 0
@@ -151,61 +153,31 @@ pseudo-transparency = false
 ;; MODULES
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-[module/left1]
-type = custom/text
-content-background = ${color.shade2}
-content-foreground = ${color.shade1}
-content = "%{T3}%{T-}"
-
-[module/left2]
+[module/leftpos]
 type = custom/text
 content-background = ${color.bground}
-content-foreground = ${color.shade2}
-content = "%{T3}%{T-}"
+content-foreground = ${color.modulebg}
+content = "%{T3}%{T-}"
+
+[module/leftneg]
+type = custom/text
+content-background = ${color.modulebg}
+content-foreground = ${color.bground}
+content = "%{T3}%{T-}"
 
 #+++++++++++++++++++++++++++++++++++++++
 
-[module/right1]
-type = custom/text
-content-background = ${color.shade2}
-content-foreground = ${color.shade1}
-content = "%{T3}%{T-}"
-
-[module/right2]
-type = custom/text
-content-background = ${color.shade3}
-content-foreground = ${color.shade2}
-content = "%{T3}%{T-}"
-
-[module/right3]
-type = custom/text
-content-background = ${color.shade4}
-content-foreground = ${color.shade3}
-content = "%{T3}%{T-}"
-
-[module/right4]
-type = custom/text
-content-background = ${color.shade5}
-content-foreground = ${color.shade4}
-content = "%{T3}%{T-}"
-
-[module/right5]
-type = custom/text
-content-background = ${color.shade6}
-content-foreground = ${color.shade5}
-content = "%{T3}%{T-}"
-
-[module/right6]
-type = custom/text
-content-background = ${color.shade7}
-content-foreground = ${color.shade6}
-content = "%{T3}%{T-}"
-
-[module/right7]
+[module/rightpos]
 type = custom/text
 content-background = ${color.bground}
-content-foreground = ${color.shade7}
-content = "%{T3}%{T-}"
+content-foreground = ${color.modulebg}
+content = "%{T3}%{T-}"
+
+[module/rightneg]
+type = custom/text
+content-background = ${color.modulebg}
+content-foreground = ${color.bground}
+content = "%{T3}%{T-}"
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -218,7 +190,7 @@ content-foreground = ${color.modulefg}
 content-padding = 1
 
 ;click-left = dmenu_run -b -l 5 -p Search -fn "Misc Termsyn" -nb "#1D1F28" -nf "#f7f7f7" -sb "#1E88E5" -sf "#202020"
-click-left = rofi -show run -fullscreen True -lines 5 -line-margin 5 -padding 300 -bw 0
+click-left = $HOME/.config/rofi.sh
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -226,7 +198,7 @@ click-left = rofi -show run -fullscreen True -lines 5 -line-margin 5 -padding 30
 type = internal/xwindow
 
 format = <label>
-format-background = ${color.shade2}
+format-background = ${color.modulebg}
 format-foreground = ${color.modulefg}
 format-padding = 1
 
@@ -239,29 +211,36 @@ label-maxlen = 30
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/workspaces]
-type = internal/xworkspaces
+type = internal/i3
 
 pin-workspaces = true
 enable-click = true
 enable-scroll = true
 
-label-active = 
-label-occupied = 
-label-urgent = 
-label-empty = 
+;label-active = 
+;label-occupied = 
+;label-urgent = 
+;label-empty = 
+label-focused = %index%
+label-visible = %index%
+label-urgent = %index%
+label-unfocused = %index%
+
+index-sort = true
 
 format = <label-state>
 
-label-monitor = %name%
-label-active-foreground = ${color.accent}
-label-occupied-foreground = ${color.yellow}
+label-focused-foreground = ${color.accent}
 label-urgent-foreground = ${color.red}
-label-empty-foreground = ${color.modulefg-alt}
+label-unfocused-foreground = ${color.modulefg-alt}
 
-label-active-padding = 1
-label-urgent-padding = 1
-label-occupied-padding = 1
-label-empty-padding = 1
+label-active-padding = 4
+label-urgent-padding = 4
+label-unfocused-padding = 4
+
+label-seperator = |
+label-seperator-padding = 2
+label-seperator-foreground = $(color.accent)
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -269,7 +248,7 @@ label-empty-padding = 1
 type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
-format-volume-background = ${color.shade6}
+format-volume-background = ${color.modulebg}
 format-volume-foreground = ${color.modulefg}
 format-volume-padding = 1
 
@@ -277,7 +256,7 @@ label-volume = %percentage%%
 
 format-muted-prefix = 
 label-muted = " Muted"
-format-muted-background = ${color.shade6}
+format-muted-background = ${color.modulebg}
 format-muted-foreground = ${color.modulefg}
 format-muted-padding = 1
 
@@ -295,7 +274,7 @@ type = internal/xbacklight
 card = intel_backlight
 
 format = <ramp> <label>
-format-background = ${color.shade4}
+format-background = ${color.modulebg}
 format-foreground = ${color.modulefg}
 format-padding = 1
 
@@ -321,12 +300,12 @@ poll-interval = 2
 time-format = %H:%M
 
 format-charging = <animation-charging> <label-charging>
-format-charging-background = ${color.shade5}
+format-charging-background = ${color.bground}
 format-charging-foreground = ${color.modulefg}
 format-charging-padding = 1
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-background = ${color.shade5}
+format-discharging-background = ${color.bground}
 format-discharging-foreground = ${color.modulefg}
 format-discharging-padding = 1
 
@@ -334,7 +313,7 @@ label-charging = %percentage%%
 label-discharging = %percentage%%
 
 label-full = Fully Charged
-label-full-background = ${color.shade5}
+label-full-background = ${color.bground}
 label-full-foreground = ${color.modulefg}
 label-full-padding = 1
 
@@ -370,7 +349,7 @@ time =  %I:%M %p
 time-alt =  %d/%m/%Y%
 
 format = <label>
-format-background = ${color.shade2}
+format-background = ${color.modulebg}
 format-foreground = ${color.modulefg}
 format-padding = 1
 label = %time%
@@ -398,7 +377,7 @@ menu-2-1 = back
 menu-2-1-exec = menu-open-0
 
 format-spacing = 1 
-format-background = ${color.shade1}
+format-background = ${color.bground}
 format-foreground = ${color.modulefg}
 format-padding = 1
 
@@ -417,12 +396,12 @@ accumulate-stats = true
 unknown-as-up = true
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-background = ${color.shade3}
+format-connected-background = ${color.bground}
 format-connected-foreground = ${color.modulefg}
 format-connected-padding = 1
 
 format-disconnected = <label-disconnected>
-format-disconnected-background = ${color.shade3}
+format-disconnected-background = ${color.bground}
 format-disconnected-foreground = ${color.modulefg}
 format-disconnected-padding = 1
 
@@ -439,12 +418,47 @@ ramp-signal-4 = 
 [module/colors]
 type = custom/text
 content = 
-content-background = ${color.shade7}
+content-background = ${color.shade6}
 content-foreground = ${color.modulefg}
 content-padding = 1
 
 click-left = ~/.config/polybar/scripts/color-switch.sh &
 click-right = ~/.config/polybar/scripts/type-switch.sh &
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/temperature]
+type = internal/temperature
+interval = 1
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 75
+
+format = <label>
+format-warn = <label-warn>
+format-background = ${color.modulebg}
+
+label = " %temperature-c% "
+label-warn = " %temperature-c% "
+label-warn-foreground = #f00
+label-background = ${color.modulebg}
+label-warn-background = ${color.modulebg}
+
+ramp-active-font =  3
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ;;	    __________  ______
