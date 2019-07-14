@@ -1,4 +1,9 @@
+" ==== . V I M R C ====
+
 " Plugins will be downloaded under the specified directory.
+"   Requires the plugin manager 'Plug'
+"   Download 'plug.vim' and place it in '.vim/autoload/'
+"   You may also need to install it via vim:wq
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
