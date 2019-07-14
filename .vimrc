@@ -3,7 +3,8 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'sheerun/vim-polyglot'
-
+Plug 'junegunn/vim-plug'
+Plug 'scrooloose/nerdtree'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -44,6 +45,12 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+
+" Add tab navigation
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 filetype plugin indent on
 
