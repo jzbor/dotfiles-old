@@ -83,9 +83,10 @@ label-focused-foreground = ${color.accent}
 label-urgent-foreground = ${color.red}
 label-unfocused-foreground = ${color.modulefg-alt}
 
-label-active-padding = 4
-label-urgent-padding = 4
-label-unfocused-padding = 4
+label-focused-padding = 3
+label-unfocused-padding = 3
+label-visible-padding = 3
+label-urgent-padding = 3
 
 label-seperator = |
 label-seperator-padding = 2
