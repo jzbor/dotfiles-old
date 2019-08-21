@@ -31,8 +31,8 @@ include-file = ~/.config/polybar/colors
 
 [bar/main]
 
-monitor = LVDS1
-monitor-fallback =
+monitor = !prim_display!
+monitor-fallback = !back_display!
 monitor-strict = false
 override-redirect = false
 
