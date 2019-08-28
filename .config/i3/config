@@ -260,7 +260,7 @@ exec --no-startup-id kdeconnect-indicator
 
 # Assign programms to workspaces; Get class with xorg-xprop
 # spotify and others need workaround (for_window)
-assign [class="Firefox"] $ws2
+assign [class="firefox"] $ws2
 assign [class="Gnome-calendar"] $ws4
 assign [class="Evolution"] $ws4
 for_window [class="jetbrains-idea-ce"] move to workspace $ws8
