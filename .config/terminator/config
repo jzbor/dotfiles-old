@@ -57,7 +57,7 @@
     [[[terminal1]]]
       order = 0
       parent = child0
-      profile = Atom
+      profile = Desert
       type = Terminal
       uuid = 260735f2-b2d1-4306-94e1-71502937c7a0
   [[x2]]
