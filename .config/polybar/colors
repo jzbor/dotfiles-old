@@ -3,13 +3,12 @@
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 ;; Active Colors
-bground = #1D1F28
-fground = #f7f7f7
-;borderbg = #f7f7f7
-accent = #6d68ed
-modulebg = #6d68ed
-modulefg = #f7f7f7
-modulefg-alt = #f7f7f7
+fground = #fed7ae
+bground = #202020
+selectorc = #ffffe1
+dividerc = #fed7ae
+urgentc = #d78272
+
 
 ;; Other
 trans = #00000000

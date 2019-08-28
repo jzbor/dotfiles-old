@@ -44,7 +44,7 @@ fixed-center = true
 ;offset-x = 1%
 ;offset-y = 2%
 width = 100%
-height = 22
+height = 26
 offset-x = 0%
 offset-y = 0%
 
@@ -55,7 +55,7 @@ radius-top = 0.0
 radius-bottom = 0.0
 
 overline-size = 2
-overline-color = ${color.accent}
+overline-color = ${color.fground}
 
 ;border-bottom-size = 2
 ;border-color = ${color.borderbg}
@@ -65,13 +65,12 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = "Quicksand:size=10:weight=bold;2"
-font-1 = "Wuncon Siji:size=12;2"
-font-2 = Iosevka Nerd Font:style=Medium:size=16;3
-font-3 = Iosevka Nerd Font:style=Medium:size=10;3
+font-1 = Iosevka Nerd Font:style=Medium:size=10;3
+font-2 = Iosevka Nerd Font:style=Medium:size=10;3
 
-modules-left = powermenu leftneg title leftpos
+modules-left = space powermenu leftpos title leftpos
 modules-center = workspaces
-modules-right = rightpos alsa rightneg battery rightpos temperature rightneg network rightpos date
+modules-right = rightpos alsa rightpos battery rightpos temperature rightpos network rightpos date space
 
 separator =
 spacing = 0
