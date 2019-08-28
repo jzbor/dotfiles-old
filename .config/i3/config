@@ -12,12 +12,12 @@
 
 
 ### COLORS and FONTS ###
-set $bg-color				#2f343f
-set $sec-color				#34be5b
-set $text-color				#f3f4f5
+set $bg-color			#2f343f
+set $sec-color			#34be5b
+set $text-color		    	#f3f4f5
 set $inactive-text-color 	#676e7d
-set $urgent-bg-color		#34be5b
-set $def-font 				Quicksand, Bold 11
+set $urgent-bg-color		#d78272
+set $def-font 		    	Quicksand, Bold 11
 
 
 
