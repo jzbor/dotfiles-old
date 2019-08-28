@@ -4,7 +4,7 @@
 
 ;; Active Colors
 fground = #fed7ae
-bground = #202020
+bground = #d0202020
 selectorc = #ffffe1
 dividerc = #fed7ae
 urgentc = #d78272
