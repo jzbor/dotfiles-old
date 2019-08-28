@@ -213,10 +213,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+# Cycling through workspaces
+bindsym $mod+Tab    workspace next
+bindsym $mod+Shift+Tab    workspace back_and_forth
 
-### MY CONFIGS ###
 
-# configure gaps
+# Configure gaps
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 1
 gaps inner 5
@@ -246,7 +248,7 @@ bindsym XF86AudioNext exec playerctl next
 
 
 # Make ws movable between windows
-bindsym $mod+Tab move workspace to output right
+bindsym $mod+Control+Tab move workspace to output right
 
 
 # Autostarts
