@@ -271,11 +271,11 @@ assign [class="Lollypop"] $ws10
 
 
 # window colors
-#						border				background			text					indicator
-client.focused			$bg-color			$bg-color			$text-color				#00ff00
-client.unfocused		$bg-color			$bg-color			$inactive-text-color	#00ff00
-client.focused_inactive	$bg-color			$bg-color			$inactive-text-color	#00ff00
-client.urgent			$urgent-bg-color	$urgent-bg-color	$text-color				#00ff00
+#				border				background			text			    indicator
+client.focused			$bg-color			$bg-color			$text-color		    $bg-color
+client.unfocused		$bg-color			$bg-color			$inactive-text-color	    $bg-color
+client.focused_inactive		$bg-color			$bg-color			$inactive-text-color	    $bg-color
+client.urgent			$urgent-bg-color		$urgent-bg-color		$text-color		    $bg-color
 
 hide_edge_borders both
 
