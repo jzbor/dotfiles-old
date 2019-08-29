@@ -52,7 +52,7 @@
       parent = ""
       position = 4:217
       size = 1358, 735
-      title = pi@raspberrypi0: ~/scripts
+      title =  Terminator
       type = Window
     [[[terminal1]]]
       order = 0
@@ -81,7 +81,7 @@
       parent = ""
       position = 4:217
       size = 1358, 365
-      title = pi@raspberrypi0: ~/scripts
+      title =  Terminator
       type = Window
     [[[terminal1]]]
       order = 0
@@ -116,7 +116,7 @@
       parent = ""
       position = 4:217
       size = 1358, 365
-      title = pi@raspberrypi0: ~/scripts
+      title =  Terminator
       type = Window
     [[[terminal1]]]
       order = 0
