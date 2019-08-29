@@ -265,9 +265,9 @@ exec --no-startup-id kdeconnect-indicator
 assign [class="firefox"] $ws2
 assign [class="Gnome-calendar"] $ws4
 assign [class="Evolution"] $ws4
-for_window [class="jetbrains-idea-ce"] move to workspace $ws8
-for_window [class="jetbrains-pycharm-ce"] move to workspace $ws9
-assign [class="Spotify"] $ws10
+for_window [class="jetbrains-idea-ce"] move to workspace $ws5
+for_window [class="jetbrains-pycharm-ce"] move to workspace $ws5
+for_window [class="jetbrains-studio"] move to workspace $ws5
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="Lollypop"] $ws10
 
