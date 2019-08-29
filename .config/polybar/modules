@@ -278,3 +278,23 @@ ramp-4 = 
 
 
 
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/music]
+type = custom/script
+exec = ~/.config/polybar/music.sh
+interval = 0.5
+
+format-background = ${color.bground}
+format-foreground = ${color.fground}
+
+label = %output%
+
+click-left = playerctl play-pause
+click-middle = playerctl play-pause
+click-right = playerctl play-pause
+
+double-click-left = playerctl next
+double-click-middle = playerctl next
+double-click-right = playerctl next
+

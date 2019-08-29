@@ -68,7 +68,7 @@ font-0 = "Quicksand:size=10:weight=bold;2"
 font-1 = Iosevka Nerd Font:style=Medium:size=10;3
 font-2 = Iosevka Nerd Font:style=Medium:size=10;3
 
-modules-left = space powermenu leftpos title leftpos
+modules-left = space powermenu leftpos music leftpos title leftpos
 modules-center = workspaces
 modules-right = rightpos alsa rightpos battery rightpos temperature rightpos network rightpos date space
 
