@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 
-if [ $(playerctl status) == "No players found" ]
+status=$(playerctl status 2> /dev/null)
+
+if [ $? != 0 ]
 then
-    echo  Sound of Silence
+    echo "   Sound of Silence"
 else
     pre_icon=
-    if [ $(playerctl status) == "Playing" ]
+    if [ "$status" == "Playing" ]
     then
 	pre_icon=
     else
