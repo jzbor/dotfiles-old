@@ -254,9 +254,8 @@ bindsym $mod+Control+Tab move workspace to output right
 # Autostarts
 exec --no-startup-id compton
 exec --no-startup-id kdeconnect-indicator
+exec spotify 
 #exec --no-startup-id conky
-#exec ~/.config/polybar/launch.sh
-#exec spotify 
 #exec evolution
 
 
