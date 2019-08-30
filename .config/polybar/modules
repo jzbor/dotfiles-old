@@ -152,14 +152,13 @@ format-discharging-foreground = ${color.fground}
 format-discharging-padding = 1
 
 format-full = <ramp-capacity> <label-full>
+format-full-background = ${color.bground}
+format-full-foreground = ${color.fground}
+format-full-padding = 1
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
-
 label-full = %percentage%%
-label-full-background = ${color.bground}
-label-full-foreground = ${color.fground}
-label-full-padding = 1
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
