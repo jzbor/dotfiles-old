@@ -293,8 +293,8 @@ format-foreground = ${color.fground}
 label = %output%
 
 click-left = playerctl play-pause
-click-middle = playerctl play-pause
-click-right = playerctl play-pause
+click-middle = playerctl previous
+click-right = playerctl next
 
 double-click-left = playerctl next
 double-click-middle = playerctl next
