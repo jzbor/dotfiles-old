@@ -29,7 +29,7 @@ include-file = ~/.config/polybar/colors
 ;margin-top = 0
 
 [bar/main]
-include-file = ~/.config/polybar/config_general
+include-file = ~/.config/polybar/general
 
 monitor = !sec_display!
 monitor-fallback = !back_display!

@@ -31,7 +31,7 @@ include-file = ~/.config/polybar/colors
 
 [bar/main]
 
-include-file = ~/.config/polybar/config_general
+include-file = ~/.config/polybar/general
 
 monitor = !prim_display!
 monitor-fallback = !back_display!
