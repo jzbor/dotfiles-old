@@ -21,7 +21,7 @@ else
     fi
     if (( ${#title} > 20 ))
     then
-	title="${artist::17}..."
+	title="${title::17}..."
     fi
     echo " $pre_icon  $artist - $title "
 fi

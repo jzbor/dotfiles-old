@@ -29,6 +29,7 @@ include-file = ~/.config/polybar/colors
 ;margin-top = 0
 
 [bar/main]
+include-file = ~/.config/polybar/config_general
 
 monitor = !sec_display!
 monitor-fallback = !back_display!
@@ -62,9 +63,6 @@ overline-color = ${color.fground}
 padding = 0
 module-margin-left = 0
 module-margin-right = 0
-
-font-0 = "Quicksand:size=10:weight=bold;2"
-font-1 = Iosevka Nerd Font:style=Medium:size=16;3
 
 modules-left = space title leftpos
 modules-center = workspaces
