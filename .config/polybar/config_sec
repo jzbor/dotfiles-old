@@ -66,7 +66,7 @@ module-margin-right = 0
 
 modules-left = space title leftpos
 modules-center = workspaces
-modules-right = rightpos date rightneg powermenu space
+modules-right = rightpos date rightpos powermenu space
 
 separator =
 spacing = 0
