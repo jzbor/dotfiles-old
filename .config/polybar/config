@@ -68,7 +68,7 @@ module-margin-right = 0
 
 modules-left = space powermenu leftpos music leftpos title leftpos
 modules-center = workspaces
-modules-right = rightpos alsa rightpos battery rightpos temperature rightpos network rightpos date space
+modules-right = rightpos alsa rightpos battery rightpos cpu rightpos network rightpos date space
 
 separator =
 spacing = 0
