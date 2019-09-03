@@ -113,30 +113,30 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 [default]"
-set $ws2 "2 [firefox]"
-set $ws3 "3 [firefox(1)]"
-set $ws4 "4 [mail/cal]"
-set $ws5 "5 [default]"
-set $ws6 "6 [default]"
-set $ws7 "7 [default]"
-set $ws8 "8 [idea]"
-set $ws9 "9 [pycharm]"
-set $ws10 "10 [music]"
-set $wsa1 "a1 [default]"
-set $wsa2 "a2 [default]"
-set $wsa3 "a3 [default]"
-set $wsa4 "a4 [default]"
-set $wsa5 "a5 [default]"
-set $wsa6 "a6 [default]"
-set $wsa7 "a7 [default]"
-set $wsa8 "a8 [default]"
-set $wsa9 "a9 [default]"
-set $wsa10 "a10 [default]"
+set $ws1 "1:[default]"
+set $ws2 "2:[web]"
+set $ws3 "3:[web]"
+set $ws4 "4:[mail/cal]"
+set $ws5 "5:[ide]"
+set $ws6 "6:[default]"
+set $ws7 "7:[default]"
+set $ws8 "8:[default]"
+set $ws9 "9:[default]"
+set $ws10 "10:[music]"
+set $wsa1 "a1:[default]"
+set $wsa2 "a2:[default]"
+set $wsa3 "a3:[default]"
+set $wsa4 "a4:[default]"
+set $wsa5 "a5:[default]"
+set $wsa6 "a6:[default]"
+set $wsa7 "a7:[default]"
+set $wsa8 "a8:[default]"
+set $wsa9 "a9:[default]"
+set $wsa10 "a10:[default]"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
+bindsym $mod+2 workspace $ws2; exec 
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
