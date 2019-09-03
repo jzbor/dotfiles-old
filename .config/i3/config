@@ -112,8 +112,6 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 #
 
-set $def_firefox_count "i3-msg -t get_tree | json_reformat | grep class | grep -o firefox | wc -l"
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:[default]"
