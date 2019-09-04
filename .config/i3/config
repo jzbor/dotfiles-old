@@ -159,8 +159,8 @@ bindsym $mod+mod1+0 workspace $wsa10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+2 workspace $ws2; exec --no-startup-id i3-save-tree --workspace 2 | grep -P 'Firefox' || firefox
+bindsym $mod+3 workspace $ws3; exec --no-startup-id i3-save-tree --workspace 3 | grep -P 'Firefox' || firefox
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
@@ -264,7 +264,7 @@ exec spotify
 
 # Assign programms to workspaces; Get class with xorg-xprop
 # spotify and others need workaround (for_window)
-assign [class="Firefox"] $ws2
+;assign [class="Firefox"] $ws2
 assign [class="Gnome-calendar"] $ws4
 assign [class="Evolution"] $ws4
 for_window [class="jetbrains-idea-ce"] move to workspace $ws5
