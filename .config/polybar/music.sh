@@ -2,7 +2,7 @@
 
 status=$(playerctl status 2> /dev/null)
 
-if [ $? != 0 ]
+if [ $? != 0 ] || [ "$status" == "Stopped" ]
 then
     echo "   Sound of Silence"
 else
