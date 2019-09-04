@@ -1,3 +1,6 @@
 # Adding my own aliases
 
 alias la="ls -a"
+alias please="sudo"
+alias fucking="sudo"
+alias update_configs="~/scripts/update/update_configs.sh"
