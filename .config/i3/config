@@ -260,7 +260,8 @@ exec --no-startup-id kdeconnect-indicator
 exec spotify 
 #exec --no-startup-id conky
 #exec evolution
-exec --no-startup-id pulseaudio --kill; pulseaudio --start
+# Weird woraround for pulse on T440
+exec --no-startup-id pulseaudio -k && pulseaudio --start && killall polybar && $HOME/.config/polybar/launch.sh &
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
 # Autostarts copied from manjaro-i3
