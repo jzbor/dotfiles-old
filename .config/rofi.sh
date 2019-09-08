@@ -11,4 +11,4 @@ rofi -show run -lines 3 -eh 2 -width 100 -padding 400 \
     -color-normal "$trans_color, $text_color, $trans_color, $trans_color, $htext_color, $trans_color" \
     -color-urgent "$bg_color, $text_color, $bg_color, $bg_color, $htext_color, $bg_color" \
     -color-active "$bg_color, $text_color, $bg_color, $bg_color, $htext_color, $bg_color" \
-    -terminal terminator -ssh-command '{terminal} -e "{ssh-client} {host}"'
+    -terminal terminator -ssh-command '{terminal} -e "{ssh-client} {host}"' $@
