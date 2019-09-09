@@ -308,6 +308,8 @@ format-disconnected-padding = 1
 label-connected = 
 label-disconnected = 
 
+ramp-signal-0 = 
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/temperature]
