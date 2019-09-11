@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/vim-plug'
 Plug 'scrooloose/nerdtree'
+Plug 'vimwiki/vimwiki'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -25,8 +26,8 @@ call plug#end()
 "  General
 set number	" Show line numbers
 set linebreak	" Break lines at word (requires Wrap lines)
-set showbreak=+++ 	" Wrap-broken line prefix
-set textwidth=100	" Line wrap (number of cols)
+set showbreak=	" Wrap-broken line prefix
+"set textwidth=	" Line wrap (number of cols)
 set showmatch	" Highlight matching brace
 set spell	" Enable spell-checking
 set visualbell	" Use visual bell (no beeping)
