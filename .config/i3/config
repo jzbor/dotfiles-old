@@ -12,7 +12,7 @@
 
 ### COLORS and FONTS ###
 set $bg-color			#202020
-set $sec-color			#34be5b
+set $sec-color			#fed7ae
 set $text-color		    	#f3f4f5
 set $inactive-text-color 	#676e7d
 set $urgent-bg-color		#d78272
@@ -226,8 +226,8 @@ for_window [class=".*"] border pixel 1
 gaps inner 5
 gaps outer 2
 
-# prevent focusing on hover
-focus_follows_mouse no
+# focusing on hover
+focus_follows_mouse yes
 
 # Add key shortcuts
 # Pulse Audio controls
@@ -290,7 +290,7 @@ assign [class="Lollypop"] $ws10
 
 # window colors
 #				border				background			text			    indicator
-client.focused			$bg-color			$bg-color			$text-color		    $bg-color
+client.focused			$sec-color			$sec-color			$text-color		    $sec-color
 client.unfocused		$bg-color			$bg-color			$inactive-text-color	    $bg-color
 client.focused_inactive		$bg-color			$bg-color			$inactive-text-color	    $bg-color
 client.urgent			$urgent-bg-color		$urgent-bg-color		$text-color		    $bg-color
