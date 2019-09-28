@@ -263,9 +263,10 @@ bindsym $mod+Control+Tab move workspace to output right
 # Autostarts
 exec --no-startup-id compton
 exec --no-startup-id kdeconnect-indicator
-exec spotify 
+exec spotify
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
+exec --no-startup-id autorandr -c --force
 # Autostarts copied from manjaro-i3
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -302,7 +303,7 @@ hide_edge_borders both
 #	status_command i3status
 #	position top
 #	tray_output primary
-#	tray_padding 0 
+#	tray_padding 0
 #	height 25
 #	colors{
 #		background $bg-color
@@ -314,7 +315,7 @@ hide_edge_borders both
 #		urgent_workspace		$bg-color    			$bg-color      			$sec-color
 #	}
 #}
-	
+
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
