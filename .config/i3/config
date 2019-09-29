@@ -281,7 +281,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Control+Tab move workspace to output right
 
 # Shortcut for notes
-bindsym $mod+Shift+n exec terminator -e imd
+bindsym $mod+Shift+n exec terminator -e "vim ~/txtfiles/index.md"
 
 # Cycling through workspaces
 bindsym $mod+Tab    workspace next
