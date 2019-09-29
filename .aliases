@@ -7,4 +7,5 @@ alias update_configs="~/scripts/update/update_configs.sh"
 alias phone_msg="kdeconnect-cli -d 19ac4ad2941e3801 --ping-msg"
 alias phone_ring="kdeconnect-cli -d 19ac4ad2941e3801 --ring"
 alias phone_sms="kdeconnect-cli -d 19ac4ad2941e3801 --send-sms --destination"
+alias phone_share="kdeconnect-cli -d 19ac4ad2941e3801 --share"
 
