@@ -255,6 +255,26 @@ bindsym $mod+i exec playerctl play-pause
 bindsym $mod+o exec playerctl next
 bindsym $mod+p workspace $ws10
 
+# Add fn/XF86 functionalities
+bindsym $mod+F1 exec pavucontrol
+bindsym $mod+F2 exec spotify
+bindsym $mod+F3 exec lollypop
+bindsym $mod+F4 exec evolution
+bindsym $mod+F5 exec idea
+bindsym $mod+F6 exec pycharm
+bindsym $mod+F7 exec android-studio
+bindsym $mod+F8 exec terminator -e nmtui
+bindsym $mod+F9 exec terminator
+bindsym $mod+F10 exec ~/.config/rofi.sh
+bindsym $mod+F11 exec terminator -e gotop
+bindsym $mod+F12 exec dolphin
+
+bindsym XF86Tools exec terminator
+bindsym XF86Search exec ~/.config/rofi.sh
+bindsym XF86LaunchA exec terminator -e gotop
+bindsym XF86Explorer exec dolphin
+
+bindsym $mod+Shift+h exec ~/.config/i3/fn-help.sh
 
 # Make ws movable between windows
 bindsym $mod+Control+Tab move workspace to output right
