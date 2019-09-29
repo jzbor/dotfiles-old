@@ -178,14 +178,6 @@ bindsym $mod+Shift+mod1+8 move container to workspace $wsa8
 bindsym $mod+Shift+mod1+9 move container to workspace $wsa9
 bindsym $mod+Shift+mod1+0 move container to workspace $wsa10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# force autorandr to reload
-bindsym $mod+Shift+f exec autorandr -c --force
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -215,9 +207,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-# Cycling through workspaces
-bindsym $mod+Tab    workspace next
-bindsym $mod+Shift+Tab    workspace back_and_forth
 
 
 # Configure gaps
@@ -276,12 +265,28 @@ bindsym XF86Explorer exec dolphin
 
 bindsym $mod+Shift+h exec ~/.config/i3/fn-help.sh
 
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Force autorandr to reload
+bindsym $mod+Shift+f exec autorandr -c --force
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # Make ws movable between windows
 bindsym $mod+Control+Tab move workspace to output right
 
 # Shortcut for notes
 bindsym $mod+Shift+n exec terminator -e imd
 
+# Cycling through workspaces
+bindsym $mod+Tab    workspace next
+bindsym $mod+Shift+Tab    workspace back_and_fort
+h
 # Autostarts
 exec --no-startup-id compton
 exec --no-startup-id kdeconnect-indicator
