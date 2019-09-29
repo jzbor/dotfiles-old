@@ -286,7 +286,7 @@ bindsym $mod+Shift+n exec terminator -e imd
 # Cycling through workspaces
 bindsym $mod+Tab    workspace next
 bindsym $mod+Shift+Tab    workspace back_and_fort
-h
+
 # Autostarts
 exec --no-startup-id compton
 exec --no-startup-id kdeconnect-indicator
