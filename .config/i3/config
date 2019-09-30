@@ -108,8 +108,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
-#
+bindsym $mod+y focus child
+
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -318,7 +318,7 @@ assign [class="Lollypop"] $ws10
 
 # window colors
 #				border				background			text			    indicator
-client.focused			$sec-color			$sec-color			$text-color		    $sec-color
+client.focused			$sec-color			$sec-color			$bg-color		    $sec-color
 client.unfocused		$bg-color			$bg-color			$inactive-text-color	    $bg-color
 client.focused_inactive		$bg-color			$bg-color			$inactive-text-color	    $bg-color
 client.urgent			$urgent-bg-color		$urgent-bg-color		$text-color		    $bg-color
