@@ -1,11 +1,11 @@
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ;;
-;;	    ____        __      __              
+;;	    ____        __      __
 ;;	   / __ \____  / /_  __/ /_  ____ ______
 ;;	  / /_/ / __ \/ / / / / __ \/ __ `/ ___/
-;;	 / ____/ /_/ / / /_/ / /_/ / /_/ / /    
-;;	/_/    \____/_/\__, /_.___/\__,_/_/     
-;;	              /____/                    
+;;	 / ____/ /_/ / / /_/ / /_/ / /_/ / /
+;;	/_/    \____/_/\__, /_.___/\__,_/_/
+;;	              /____/
 ;;
 ;; Created by @jzbor
 ;; Inherited Design From Aditya Shakya @adi1090x
@@ -66,15 +66,15 @@ padding = 0
 module-margin-left = 0
 module-margin-right = 0
 
-modules-left = space powermenu leftpos music leftpos alsa leftpos
+modules-left = space launcher leftpos music leftpos alsa leftpos
 modules-center = workspaces
 modules-right = rightpos cpu rightpos network ethernet rightpos battery0 battery1 rightpos date space
 
 separator =
 spacing = 0
 dim-value = 1.0
-wm-name = 
-locale = 
+wm-name =
+locale =
 
 tray-position = none
 tray-detached = false
@@ -114,9 +114,9 @@ include-file = ~/.config/polybar/modules
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 ;;	    __________  ______
 ;;	   / ____/ __ \/ ____/
-;;	  / __/ / / / / /_    
-;;	 / /___/ /_/ / __/    
-;;	/_____/\____/_/       
+;;	  / __/ / / / / /_
+;;	 / /___/ /_/ / __/
+;;	/_____/\____/_/
 ;;
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 

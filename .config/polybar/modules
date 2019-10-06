@@ -28,13 +28,13 @@ content = " "
 
 [module/launcher]
 type = custom/text
-content = 
+content = 
 
-content-background = ${color.fground}
-content-foreground = ${color.bground}
+content-background = ${color.bground}
+content-foreground = ${color.fground}
 content-padding = 1
 
-click-left = $HOME/.config/rofi.sh
+click-left = $HOME/.config/rofi/win_drun.sh
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
@@ -252,7 +252,7 @@ menu-2-0-exec = systemctl poweroff
 menu-2-1 = back
 menu-2-1-exec = menu-open-0
 
-format-spacing = 1 
+format-spacing = 1
 format-background = ${color.bground}
 format-foreground = ${color.fground}
 format-padding = 1
@@ -265,7 +265,7 @@ label-separator = |
 
 [module/network]
 type = internal/network
-interface = wlp3s0
+interface = !wifi!
 
 interval = 1.0
 accumulate-stats = true
@@ -317,7 +317,7 @@ type = internal/temperature
 interval = 1
 
 ; Thermal zone to use
-; To list all the zone types, run 
+; To list all the zone types, run
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
 ; Default: 0
 thermal-zone = 0
