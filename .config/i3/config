@@ -236,7 +236,9 @@ gaps inner 5
 gaps outer 2
 
 # Tiling
+default_orientation vertical # should be the opposite of the desired outcome (because of 'split toggle')
 for_window [class=".*"] split toggle
+
 
 # Focusing on hover
 focus_follows_mouse yes
