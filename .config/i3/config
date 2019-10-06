@@ -134,17 +134,39 @@ set $wsa8 "a8:[default]"
 set $wsa9 "a9:[default]"
 set $wsa10 "a10:[default]"
 
+# Define Workspace conditions and commands
+set $ws1_if i3-save-tree --workspace 1 | grep -P 'name'
+set $ws1_cmd
+set $ws2_if i3-save-tree --workspace 2 | grep -P 'Firefox'
+set $ws2_cmd firefox
+set $ws3_if i3-save-tree --workspace 3 | grep -P 'Firefox'
+set $ws3_cmd firefox
+set $ws4_if i3-save-tree --workspace 4 | grep -P 'name'
+set $ws4_cmd
+set $ws5_if i3-save-tree --workspace 5 | grep -P 'name'
+set $ws5_cmd
+set $ws6_if i3-save-tree --workspace 6 | grep -P 'name'
+set $ws6_cmd
+set $ws7_if i3-save-tree --workspace 7 | grep -P 'name'
+set $ws7_cmd
+set $ws8_if i3-save-tree --workspace 8 | grep -P 'name'
+set $ws8_cmd
+set $ws9_if i3-save-tree --workspace 9 | grep -P 'name'
+set $ws9_cmd
+set $ws10_if i3-save-tree --workspace 10 | grep -P 'name'
+set $ws10_cmd
+
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2; exec --no-startup-id i3-save-tree --workspace 2 | grep -P 'Firefox' || firefox
-bindsym $mod+3 workspace $ws3; exec --no-startup-id i3-save-tree --workspace 3 | grep -P 'Firefox' || firefox
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace $ws1; exec --no-startup-id $ws1_if || $ws1_cmd
+bindsym $mod+2 workspace $ws2; exec --no-startup-id $ws2_if || $ws2_cmd
+bindsym $mod+3 workspace $ws3; exec --no-startup-id $ws3_if || $ws3_cmd
+bindsym $mod+4 workspace $ws4; exec --no-startup-id $ws4_if || $ws4_cmd
+bindsym $mod+5 workspace $ws5; exec --no-startup-id $ws5_if || $ws5_cmd
+bindsym $mod+6 workspace $ws6; exec --no-startup-id $ws6_if || $ws6_cmd
+bindsym $mod+7 workspace $ws7; exec --no-startup-id $ws7_if || $ws7_cmd
+bindsym $mod+8 workspace $ws8; exec --no-startup-id $ws8_if || $ws8_cmd
+bindsym $mod+9 workspace $ws9; exec --no-startup-id $ws9_if || $ws9_cmd
+bindsym $mod+0 workspace $ws10; exec --no-startup-id $ws10_if || $ws10_cmd
 bindsym $mod+mod1+1 workspace $wsa1
 bindsym $mod+mod1+2 workspace $wsa2
 bindsym $mod+mod1+3 workspace $wsa3
@@ -207,16 +229,18 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-
-
 # Configure gaps
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 1
 gaps inner 5
 gaps outer 2
 
-# focusing on hover
+# Tiling
+for_window [class=".*"] split toggle
+
+# Focusing on hover
 focus_follows_mouse yes
+
 
 # Add key shortcuts
 # Pulse Audio controls
@@ -264,6 +288,7 @@ bindsym XF86LaunchA exec terminator -e gotop
 bindsym XF86Explorer exec dolphin
 
 bindsym $mod+Shift+h exec ~/.config/i3/fn-help.sh
+
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
