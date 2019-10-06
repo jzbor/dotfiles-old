@@ -4,6 +4,12 @@
  * Copyright: Dave Davenport
  */
 
+configuration {
+    show-icons:                     true;
+    icon-theme:                     "Flat-Remix-Blue-Dark";
+    font:                           "Liberation Mono Bold 10";
+}
+
 * {
     background-color:               transparent;
     background:                     #202020;
@@ -20,9 +26,10 @@
     anchor:     north;
     location:   north;
     width:      100%;
-    padding:    4px;
+    height:	26px;
     children:   [ horibox ];
     background-color:	    @background;
+    padding:	5px;
 }
 
 prompt {
