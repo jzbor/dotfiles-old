@@ -1,0 +1,104 @@
+configuration {
+    show-icons:                     true;
+    icon-theme:                     "Flat-Remix-Blue-Dark";
+    font:                           "Quicksand 15";
+}
+
+
+* {
+    background-color:               transparent;
+    background:                     #202020d0;
+    background-alt:                 #202020d0;
+    text-color:                     #fed7ae;
+    selected-text-color:            #ffffe1;
+    primary:                        #A3BE8C;
+    urgent:                         #d78272;
+    transparent:		    #00000000;
+}
+
+
+window {
+    fullscreen:			    true;
+    transparency:                   "real";
+    background-color:               @background;
+    height:                         742px;
+    width:                          1321px;
+    location:                       northwest;
+    anchor:                         northwest;
+    x-offset:                       45;
+    y-offset:                       26;
+}
+
+inputbar {
+    margin:                         200px 240px 20px 240px;
+    border-radius:                  2;
+    border:                         1px 1px solid 1px 1px;
+    border-color:                   @text-color;
+
+}
+
+prompt {
+    enabled:                        true;
+    margin:			    2px 5px 2px 10px;
+    padding:                        10px 10px 10px 10px;
+}
+
+entry  {
+    expand:                         false;
+    width:                          36em;
+    margin:			    2px 5px 2px 10px;
+    padding:                        10px 10px 10px 10px;
+    font:                           "Quicksand";
+}
+
+listview {
+    columns:                        1;
+    margin:                         20px 240px 200px 240px;
+}
+
+element {
+    orientation:                    vertical;
+    padding:                        8px;
+    margin:                         8px;
+}
+
+mainbox {
+    padding:                        10px 40px 10px 40px;
+}
+
+element {
+    padding:                        8px;
+}
+
+element normal.urgent, element alternate.urgent {
+    background-color:               @urgent;
+}
+
+element normal.active, element alternate.active {
+    color:                          @selected-text-color;
+}
+
+element selected {
+    color:                          @selected-text-color;
+    border:                         0px 0px solid 0px 1px;
+    border-color:                   @text-color;
+}
+
+element selected.urgent {
+    background-color:               @urgent;
+}
+
+element selected.active {
+    color:                          @selected-text-color;
+}
+
+element-icon {
+    size:                           128;
+    border:                         0px;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+}
+

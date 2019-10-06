@@ -44,8 +44,8 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# kill focused window; 'split toggle' is required to reset splitting orientation
+bindsym $mod+Shift+q split toggle kill
 
 
 # start dmenu (a program launcher)
@@ -57,7 +57,7 @@ bindsym $mod+Shift+q kill
 #
 # Using rofi instead:
 # See end of file ("rofi.sh")
-bindsym $mod+d exec ~/.config/rofi.sh
+bindsym $mod+d exec ~/.config/rofi/rofi.sh
 
 
 # change focus
@@ -236,7 +236,7 @@ gaps inner 5
 gaps outer 2
 
 # Tiling
-default_orientation vertical # should be the opposite of the desired outcome (because of 'split toggle')
+default_orientation vertical
 for_window [class=".*"] split toggle
 
 
