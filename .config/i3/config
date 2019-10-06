@@ -57,7 +57,8 @@ bindsym $mod+Shift+q split toggle kill
 #
 # Using rofi instead:
 # See end of file ("rofi.sh")
-bindsym $mod+d exec ~/.config/rofi/rofi.sh
+bindsym $mod+d exec ~/.config/rofi/drun.sh
+bindsym $mod+Shift+d exec ~/.config/rofi/cmdmenu.sh
 
 
 # change focus
