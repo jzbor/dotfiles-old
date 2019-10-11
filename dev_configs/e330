@@ -1,0 +1,10 @@
+# Device config file for my scripts
+
+conf_name="E330"
+conf_bat="BAT0"
+conf_wifi="wlp2s0"
+conf_lan="eth0"
+conf_primdp="LVDS1"
+conf_secdp="VGA1"
+conf_backdp="HDMI1"
+
