@@ -265,7 +265,7 @@ label-separator = |
 
 [module/network]
 type = internal/network
-interface = !wifi!
+interface = wlp3s0
 
 interval = 1.0
 accumulate-stats = true

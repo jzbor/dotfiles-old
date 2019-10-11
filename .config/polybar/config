@@ -33,8 +33,8 @@ include-file = ~/.config/polybar/colors
 
 include-file = ~/.config/polybar/general
 
-monitor = !prim_display!
-monitor-fallback = !back_display!
+monitor = eDP1
+monitor-fallback = DP2
 monitor-strict = false
 override-redirect = false
 
