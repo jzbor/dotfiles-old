@@ -67,7 +67,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 modules-left = space launcher leftpos music leftpos alsa leftpos
-modules-center = workspaces
+modules-center = workspaces bspwm
 modules-right = rightpos cpu rightpos network ethernet rightpos battery0 battery1 rightpos date space
 
 separator =
