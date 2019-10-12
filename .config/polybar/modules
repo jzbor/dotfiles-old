@@ -115,6 +115,15 @@ reverse-scroll = true
 ; Default: false
 fuzzy-match = true
 
+label-empty =
+
+label-focused-foreground = ${color.selectorc}
+label-urgent-foreground = ${color.urgentc}
+
+label-seperator = |
+label-seperator-padding = 2
+label-seperator-foreground = ${color.dividerc}
+
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/alsa]
