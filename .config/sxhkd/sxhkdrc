@@ -32,6 +32,11 @@ super + shift + e
 super + shift + q
 	bspc node -c
 
+# move workspace to next monitor
+super + ctrl + Tab
+	bspc desktop -m next; \
+	bspc monitor -f next
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next

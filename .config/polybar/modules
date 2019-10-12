@@ -115,6 +115,8 @@ reverse-scroll = true
 ; Default: false
 fuzzy-match = true
 
+index-sort = true
+
 label-empty =
 
 label-focused-foreground = ${color.selectorc}
