@@ -115,10 +115,14 @@ reverse-scroll = true
 ; Default: false
 fuzzy-match = true
 
-label-empty =
+label-focused-empty =
 
 label-focused-foreground = ${color.selectorc}
 label-urgent-foreground = ${color.urgentc}
+
+label-focused-padding = 2
+label-urgent-padding = 2
+label-occupied-padding = 2
 
 label-seperator = |
 label-seperator-padding = 2
