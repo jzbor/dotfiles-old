@@ -90,7 +90,7 @@ type = internal/bspwm
 ; Only show workspaces defined on the same output as the bar
 ; NOTE: The bspwm and XRandR monitor names must match, which they do by default.
 ; Default: true
-pin-workspaces = false
+;pin-workspaces = false
 
 ; Output mode flags after focused state label
 ; Default: false
@@ -115,14 +115,15 @@ reverse-scroll = true
 ; Default: false
 fuzzy-match = true
 
-label-focused-empty =
+label-empty =
 
 label-focused-foreground = ${color.selectorc}
 label-urgent-foreground = ${color.urgentc}
 
-label-focused-padding = 2
-label-urgent-padding = 2
-label-occupied-padding = 2
+label-focused-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+label-empty-padding = 1
 
 label-seperator = |
 label-seperator-padding = 2

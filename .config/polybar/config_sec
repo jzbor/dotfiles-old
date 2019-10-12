@@ -65,7 +65,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 modules-left = space title leftpos
-modules-center = workspaces
+modules-center = workspaces bspwm
 modules-right = rightpos date rightpos powermenu space
 
 separator =
