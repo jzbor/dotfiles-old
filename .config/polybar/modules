@@ -263,7 +263,6 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 [module/date]
@@ -355,7 +354,7 @@ format-disconnected-foreground = ${color.fground}
 format-disconnected-padding = 1
 
 label-connected = 
-label-disconnected = 
+label-disconnected =
 
 ramp-signal-0 = 
 
@@ -422,7 +421,7 @@ label = "  %percentage:02%% "
 
 [module/music]
 type = custom/script
-exec = ~/.config/polybar/music.sh
+exec = ~/.config/polybar/scripts/music.sh
 interval = 0.5
 
 format-background = ${color.bground}
@@ -438,3 +437,28 @@ double-click-left = playerctl next
 double-click-middle = playerctl next
 double-click-right = playerctl next
 
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/ac]
+type = custom/script
+exec = ~/.config/polybar/scripts/ac.sh
+interval = 0.5
+
+format-background = ${color.bground}
+format-foreground = ${color.fground}
+
+label = %output%
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/yay]
+type = custom/script
+exec = ~/.config/polybar/scripts/yay.sh
+interval = 600
+
+format-background = ${color.bground}
+format-foreground = ${color.fground}
+
+label = %output%
+
+click-left = dunstify "$(yay -Qu)" -a Updates
