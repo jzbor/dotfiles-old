@@ -63,10 +63,10 @@ bindsym $mod+Shift+d exec ~/.config/rofi/cmdmenu.sh
 
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -87,7 +87,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
+bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -118,12 +119,12 @@ bindsym $mod+y focus child
 set $ws1 "1:[default]"
 set $ws2 "2:[web]"
 set $ws3 "3:[web]"
-set $ws4 "4:[mail/cal]"
-set $ws5 "5:[ide]"
+set $ws4 "4:[ide]"
+set $ws5 "5:[default]"
 set $ws6 "6:[default]"
 set $ws7 "7:[default]"
 set $ws8 "8:[default]"
-set $ws9 "9:[default]"
+set $ws9 "9:[mail/cal]"
 set $ws10 "10:[music]"
 set $wsa1 "a1:[default]"
 set $wsa2 "a2:[default]"
@@ -153,8 +154,8 @@ set $ws7_if i3-save-tree --workspace 7 | grep -P 'name'
 set $ws7_cmd
 set $ws8_if i3-save-tree --workspace 8 | grep -P 'name'
 set $ws8_cmd
-set $ws9_if i3-save-tree --workspace 9 | grep -P 'name'
-set $ws9_cmd
+set $ws9_if i3-save-tree --workspace 9 | grep -P 'Evolution'
+set $ws9_cmd evolution
 set $ws10_if i3-save-tree --workspace 10 | grep -P 'name'
 set $ws10_cmd
 
@@ -211,10 +212,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -263,13 +264,13 @@ bindsym XF86Sleep exec dmtool lock || blurlock
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
-bindsym $mod+u exec playerctl previous
-bindsym $mod+i exec playerctl play-pause
-bindsym $mod+o exec playerctl next
+bindsym XF86AudioPlay exec ~/.config/polybar/scripts/music.sh play
+bindsym XF86AudioPause exec ~/.config/polybar/scripts/music.sh pause
+bindsym XF86AudioPrev exec ~/.config/polybar/scripts/music.sh prev
+bindsym XF86AudioNext exec ~/.config/polybar/scripts/music.sh next
+bindsym $mod+u exec ~/.config/polybar/scripts/music.sh prev
+bindsym $mod+i exec ~/.config/polybar/scripts/music.sh play-pause
+bindsym $mod+o exec ~/.config/polybar/scripts/music.sh next
 bindsym $mod+p workspace $ws10
 
 # Add fn/XF86 functionalities
@@ -291,7 +292,7 @@ bindsym XF86Search exec ~/.config/rofi.sh
 bindsym XF86LaunchA exec terminator -e gotop
 bindsym XF86Explorer exec dolphin
 
-bindsym $mod+Shift+h exec ~/.config/i3/fn-help.sh
+bindsym $mod+Shift+F1 exec ~/.config/i3/fn-help.sh
 
 
 # Reload the configuration file
@@ -338,13 +339,15 @@ exec_always --no-startup-id fix_xcursor
 
 # Assign programms to workspaces; Get class with xorg-xprop
 # spotify and others need workaround (for_window)
-assign [class="Gnome-calendar"] $ws4
-assign [class="Evolution"] $ws4
+assign [class="Gnome-calendar"] $ws9
+assign [class="Evolution"] $ws9
 for_window [class="jetbrains-idea-ce"] move to workspace $ws5
 for_window [class="jetbrains-pycharm-ce"] move to workspace $ws5
 for_window [class="jetbrains-studio"] move to workspace $ws5
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="Lollypop"] $ws10
+
+for_window [window_role="^floating$"] floating enable, resize set 450 150, move position center
 
 
 # window colors

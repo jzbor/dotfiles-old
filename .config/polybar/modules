@@ -429,13 +429,13 @@ format-foreground = ${color.fground}
 
 label = %output%
 
-click-left = playerctl play-pause
-click-middle = playerctl previous
-click-right = playerctl next
+click-left = ~/.config/polybar/scripts/music.sh play-pause
+click-middle = ~/.config/polybar/scripts/music.sh previous
+click-right = ~/.config/polybar/scripts/music.sh next
 
-double-click-left = playerctl next
-double-click-middle = playerctl next
-double-click-right = playerctl next
+double-click-left = ~/.config/polybar/scripts/music.sh next
+double-click-middle = ~/.config/polybar/scripts/music.sh next
+double-click-right = ~/.config/polybar/scripts/music.sh next
 
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
