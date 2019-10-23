@@ -17,6 +17,8 @@
     	Plug 'junegunn/vim-plug'
     	Plug 'scrooloose/nerdtree'
     	Plug 'vimwiki/vimwiki'
+	Plug 'sainnhe/gruvbox-material'
+	"Plug 'vim-airline/vim-airline'
 
 	" List ends here. Plugins become visible to Vim after this call.
     call plug#end()
@@ -25,6 +27,11 @@
     set visualbell	" Use visual bell (no beeping)
     set encoding=utf8	" Use UTF-8 encoding
     set mouse=a		" Enable mouse
+
+" Coloring
+    colorscheme gruvbox-material
+    set background=dark
+    let g:airline_theme = 'gruvbox_material'
 
 " Ruler / line numbers
     set number relativenumber	" Show line numbers
