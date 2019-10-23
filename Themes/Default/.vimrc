@@ -50,10 +50,13 @@
 
 " Spell-checking and syntax-checking
     set spell		" Enable spell-checking
+    set spelllang=en,de " Set spell-checking language
     filetype plugin indent on " Enable filetype detection, plugin and indent at once
     syntax on		" Syntax highlighting
     map <leader>o :setlocal spell! spelllang=de_de<CR>	" Trigger spellcheck
     autocmd BufWritePre * %s/\s\+$//e	" Automatically deletes all trailing whitespace on save
+    hi SpellBad cterm=underline ctermfg=NONE ctermbg=NONE " Setting up the highlighting style to only underline
+    autocmd ColorScheme * hi SpellBad cterm=underline ctermfg=NONE ctermbg=NONE " Setting up the highlighting style to only underline
 
 " Searching
     set hlsearch	" Highlight all search results
