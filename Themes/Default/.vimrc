@@ -19,6 +19,7 @@
     	Plug 'vimwiki/vimwiki'
 	Plug 'sainnhe/gruvbox-material'
 	"Plug 'vim-airline/vim-airline'
+	Plug 'itchyny/lightline.vim'
 
 	" List ends here. Plugins become visible to Vim after this call.
     call plug#end()
@@ -29,9 +30,20 @@
     set mouse=a		" Enable mouse
 
 " Coloring
-    colorscheme gruvbox-material
-    set background=dark
-    let g:airline_theme = 'gruvbox_material'
+    if &t_Co > 255
+	colorscheme gruvbox-material
+	set background=dark
+    	let g:airline_theme = 'gruvbox_material'
+    	let g:lightline = {'colorscheme' : 'gruvbox_material'}
+    endif
+    if &t_Co == 8
+	colorscheme default
+	set background=dark
+    	let g:airline_theme = 'default'
+    	let g:lightline = {'colorscheme' : 'default'}
+    endif
+    set laststatus=2	" Adds another statusline (for lightline)
+    set noshowmode  " Removes mode in regular vim status line
 
 " Ruler / line numbers
     set number relativenumber	" Show line numbers
@@ -90,11 +102,11 @@
     set backspace=indent,eol,start	" Backspace behaviour
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-	autocmd BufRead,BufNewFile *.tex set filetype=tex
+    let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+    let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+    autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+    autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+    autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Markdown + latex tools
     command Mdp !markdown_previewer % $<CR>
