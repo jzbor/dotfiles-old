@@ -5,6 +5,6 @@ trans_color=#00000000
 htext_color=#fed7ae
 text_color=#bfbfa1
 
-rofi -show drun -theme village_win\
+rofi -show run -theme village_win\
     -terminal terminator -ssh-command '{terminal} -e "{ssh-client} {host}"' \
     $@

@@ -142,7 +142,7 @@
     startup_notification = false
 
     # dmenu path.
-    dmenu = /home/jzbor/.config/rofi/cmdmenu.sh -p -dmenu dunst:
+    dmenu = /home/jzbor/.config/rofi/win_run.sh -p -dmenu dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/firefox -new-tab
