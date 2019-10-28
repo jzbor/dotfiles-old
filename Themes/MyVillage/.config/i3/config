@@ -58,8 +58,8 @@ bindsym $mod+Shift+q kill
 #
 # Using rofi instead:
 # See end of file ("rofi.sh")
-bindsym $mod+d exec ~/.config/rofi/drun.sh
-bindsym $mod+Shift+d exec ~/.config/rofi/cmdmenu.sh
+bindsym $mod+d exec ~/.config/rofi/win_drun.sh
+bindsym $mod+Shift+d exec ~/.config/rofi/win_run.sh
 
 
 # change focus
@@ -308,19 +308,19 @@ bindsym $mod+Shift+f exec autorandr -c --force
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Make ws movable between windows
-bindsym $mod+Control+Tab move workspace to output right
+bindsym $mod+Shift+Tab move workspace to output right
 
 # Shortcut for notes
 bindsym $mod+Shift+n exec terminator -e "vim ~/txtfiles/index.md"
 
 # Cycling through workspaces
 bindsym $mod+Tab    workspace next
-bindsym $mod+Shift+Tab    workspace back_and_forth
+bindsym $mod+Control+Tab    workspace back_and_forth
 
 # Autostarts
 exec --no-startup-id compton
-exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id kdeconnect-cli
+exec --no-startup-id indicator-kdeconnect
+exec --no-startup-id /usr/lib/kdeconnectd
 exec spotify
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
 exec --no-startup-id redshift-gtk
@@ -360,22 +360,25 @@ client.urgent			$urgent-bg-color		$urgent-bg-color		$text-color		    $bg-color
 hide_edge_borders both
 
 # i3bar
-#bar {
-#	status_command i3status
-#	position top
-#	tray_output primary
-#	tray_padding 0
-#	height 25
-#	colors{
-#		background $bg-color
-#		separator $text-color
-#		#                       border                  background              text
-#		focused_workspace		$sec-color    			$bg-color      			$sec-color
-#		active_workspace		$bg-color      			$bg-color      			$text-color
-#		inactive_workspace		$bg-color      			$bg-color      			$inactive-text-color
-#		urgent_workspace		$bg-color    			$bg-color      			$sec-color
-#	}
-#}
+bar {
+	status_command i3status
+	mode hide
+	modifier $mod+mod1
+	position bottom
+	strip_workspace_name yes
+	tray_output primary
+	tray_padding 0
+	height 25
+	colors{
+		background $bg-color
+		separator $text-color
+		#				border		background	    text
+		focused_workspace		$sec-color   	$sec-color 	    $bg-color
+		active_workspace		$sec-color    	$bg-color	    $sec-color
+		inactive_workspace		$sec-color    	$bg-color 	    $sec-color
+		urgent_workspace		$sec-color    	$urgent-bg-color    $bg-color
+	}
+}
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
