@@ -24,6 +24,7 @@ XTerm*selectToClipboard: true
 
 !! My theme
 *themeBackground:		  #202020
+*themeBackgroundTrans:		  #D0202020
 *themeForeground:		  #FED7AE
 *themeSelector:			  #FFFFE1
 *themeUrgent:			  #D78272

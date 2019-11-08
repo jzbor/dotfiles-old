@@ -4,7 +4,7 @@
 
 ;; Active Colors
 fground =   ${xrdb:themeForeground:#fed7ae}
-bground =   ${xrdb:themeBackground:#d0202020}
+bground =   ${xrdb:themeBackgroundTrans:#d0202020}
 selectorc = ${xrdb:themeSelector:#ffffe1}
 dividerc =  ${xrdb:themeForeground:#fed7aae}
 urgentc =   ${xrdb:themeUrgent:#d78272}
