@@ -3,11 +3,11 @@
 ;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 ;; Active Colors
-fground = #fed7ae
-bground = #d0202020
-selectorc = #ffffe1
-dividerc = #fed7ae
-urgentc = #d78272
+fground =   ${xrdb:themeForeground:#fed7ae}
+bground =   ${xrdb:themeBackground:#d0202020}
+selectorc = ${xrdb:themeSelector:#ffffe1}
+dividerc =  ${xrdb:themeForeground:#fed7aae}
+urgentc =   ${xrdb:themeUrgent:#d78272}
 
 
 ;; Other

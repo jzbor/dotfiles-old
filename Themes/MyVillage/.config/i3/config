@@ -11,11 +11,11 @@
 
 
 ### COLORS and FONTS ###
-set $bg-color			#202020
-set $sec-color			#fed7ae
-set $text-color		    	#f3f4f5
-set $inactive-text-color 	#676e7d
-set $urgent-bg-color		#d78272
+set_from_resource	$bg-color		themeBackground	    #202020
+set_from_resource	$sec-color		themeForeground	    #fed7ae
+set_from_resource	$urgent-bg-color	themeUrgent	    #d78272
+set $text-color		    #f3f4f5
+set $inactive-text-color    #676e7d
 set $def-font 		    	Quicksand, Bold 11
 
 
