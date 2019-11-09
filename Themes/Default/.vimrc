@@ -63,6 +63,7 @@
 " Spell-checking and syntax-checking
     set spell		" Enable spell-checking
     set spelllang=en,de " Set spell-checking language
+    let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
     filetype plugin indent on " Enable filetype detection, plugin and indent at once
     syntax on		" Syntax highlighting
     map <leader>o :setlocal spell! spelllang=de_de<CR>	" Trigger spellcheck
