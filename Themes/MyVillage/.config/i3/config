@@ -341,9 +341,10 @@ exec_always --no-startup-id fix_xcursor
 # spotify and others need workaround (for_window)
 assign [class="Gnome-calendar"] $ws9
 assign [class="Evolution"] $ws9
-for_window [class="jetbrains-idea-ce"] move to workspace $ws5
-for_window [class="jetbrains-pycharm-ce"] move to workspace $ws5
-for_window [class="jetbrains-studio"] move to workspace $ws5
+for_window [title="win0"] move to workspace $ws5, floating enable   # JetBrains loading frame
+for_window [class="jetbrains-idea-ce" instance="^(?!sun-awt-X11-XDialogPeer$)"] move to workspace $ws5
+for_window [class="jetbrains-pycharm-ce" instance="^(?!sun-awt-X11-XDialogPeer$)"] move to workspace $ws5
+for_window [class="jetbrains-studio" instance="^(?!sun-awt-X11-XDialogPeer$)"] move to workspace $ws5
 for_window [class="Spotify"] move to workspace $ws10
 assign [class="Lollypop"] $ws10
 
@@ -358,6 +359,7 @@ for_window [title="antiX Control Centre"] floating enable
 for_window [instance="desktop-session-exit"] floating enable
 for_window [instance="st"] floating enable
 for_window [title="Terminator Preferences"] floating enable
+
 
 
 # window colors
