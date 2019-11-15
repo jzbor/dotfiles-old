@@ -314,8 +314,8 @@ bindsym $mod+Shift+Tab move workspace to output right
 bindsym $mod+Shift+n exec terminator -e "vim ~/txtfiles/index.md"
 
 # Cycling through workspaces
-bindsym $mod+Tab    workspace next
-bindsym $mod+Control+Tab    workspace back_and_forth
+bindsym $mod+Control+Tab    workspace next
+bindsym $mod+Tab    workspace back_and_forth
 
 # Autostarts
 exec --no-startup-id compton
