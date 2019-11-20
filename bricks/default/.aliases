@@ -31,9 +31,13 @@ pv () {
     fi
 }
 
+music () {
+    $HOME/.config/polybar/scripts/music.sh $1 > /dev/null
+}
+
 alias p+="pactl set-sink-volume 0 +5%"
 alias p-="pactl set-sink-volume 0 -5%"
-alias pu="bash $HOME/.config/polybar/scripts/music.sh prev"
-alias pi="bash $HOME/.config/polybar/scripts/music.sh play-pause"
-alias po="bash $HOME/.config/polybar/scripts/music.sh next"
-alias pp="bash $HOME/.config/polybar/scripts/music.sh"
+alias pu="music prev"
+alias pi="music play-pause"
+alias po="music next"
+alias pp="music"
