@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+import argparse
 import os
 import os.path
 import shutil
@@ -87,27 +88,62 @@ def copytree(src, dst):
             shutil.copy2(s, d)
 
 
+def load_config(name):
+    attr = {}
+    file = open(os.path.join(dev_dir, name))
+    for l in file.readlines():
+        k, v = l.split()
+        attr[k] = v
+    return attr
 
-def init_git(path):
+
+def replace_in_dir(target, k, v):
+    # !!! DANGER ZONE !!!
+    # find $dotfiledir -type f | xargs sed -i "s/$conf_value_def/$conf_value/g"
+    find_process = subprocess.Popen('find {} -type f'.format(target)\
+                               .split(), stdout=subprocess.PIPE)
+    sed_process = subprocess.Popen('xargs sed -i "s/{}/{}/g"'.format(k, v).split(),\
+                                   stdout=subprocess.PIPE, stdin=find_process.stdout)
+    find_process.stdout.close()
+    output, error = sed_process.communicate()
+
+
+
+def apply_devconf(name):
+    default_config = load_config('default')
+    target_config = load_config(name)
+
+    for k in default_config.keys():
+        replace_in_dir(default_config[k], target_config[k])
+
+
+
+def git_init(path):
     git_process = subprocess.Popen('git -C {} init'.format(path).split(),\
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return git_process.communicate()
 
 
-def add_git(path):
+def git_add(path):
     git_process = subprocess.Popen('git -C {} add -A'.format(path).split(),\
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return git_process.communicate()
 
 
-def commit_git(path, message):
+def git_commit(path, message):
     git_process = subprocess.Popen('git -C {} commit -m {}'.format(path, message).split(),\
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return git_process.communicate()
 
 
-def push_git(path):
+def git_push(path):
     git_process = subprocess.Popen('git -C {} push'.format(path).split(),\
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return git_process.communicate()
+
+
+def git_pull(path):
+    git_process = subprocess.Popen('git -C {} pull'.format(path).split(),\
                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return git_process.communicate()
 
@@ -188,15 +224,52 @@ def build_to_dir(bricks, device, target_dir=os.environ['HOME'], git=False, push=
             # < python 3.8
             copytree(os.path.join(brick_dir, b), target_dir)
 
+    # @TODO Apply device config device
+
     # Cleaning up
     shutil.rmtree(tempdir)
 
-    pass
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='Building and loading configs from the repo')
+    parser.add_argument('-H', help='takes the users home as target directory',\
+                        action='store_true', dest='home')
+    parser.add_argument('-d', help='specify target path', nargs=1, type=str,\
+                        dest='dest')
+    parser.add_argument('-g', help='creates a git repository in the target directory',\
+                        action='store_true', dest='git')
+    parser.add_argument('-u', help='updates the dotfile repo via \'git pull\'',\
+                        action='store_true', dest='update')
+    parser.add_argument('-p', help='tries to push changes if the target is a git repo\
+                        (requires -g)', action='store_true', dest='push')
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    bricks = choose_bricks()
-    dev = choose_device()
-    build_to_dir(bricks, dev, '/home/jzbor/test')
+    args = parse_args()
+    if args.update:
+        git_pull(script_dir)
+
+    # @TODO If statement working on args.dest[0]?
+    if args.home or args.dest:
+        if args.home:
+            dest = os.environ['HOME']
+        else:
+            dest = args.dest[0]
+        bricks = choose_bricks()
+        dev = choose_device()
+        build_to_dir(bricks, dev, dest)
+        if args.git:
+            if os.path.exists(os.path.join(dest, '.git')):
+                git_add(dest)
+            else:
+                git_init(dest)
+                git_add(dest)
+            git_commit(dest, 'New configs')
+
+            if args.push:
+                git_push(dest)
+    else:
+        print('No target directory specified. Use -H or -d to define a destination or -h for help.')
 
 
