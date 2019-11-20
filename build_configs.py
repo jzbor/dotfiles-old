@@ -1,14 +1,18 @@
 #! /usr/bin/env python3
 
+import os
 import os.path
+import shutil
 import subprocess
 
 script_dir=os.path.dirname(os.path.abspath(__file__))+'/'
+brick_dir=script_dir+'bricks/'
+dev_dir=script_dir+'dev_configs/'
 
 def get_available_bricks():
     """Return all available bricks with clear assigned numbers (dict/list)"""
 
-    ls_process = subprocess.Popen('ls -1 {}'.format(script_dir+'bricks')\
+    ls_process = subprocess.Popen('ls -1 {}'.format(brick_dir)\
                                .split(), stdout=subprocess.PIPE)
     sed_process = subprocess.Popen('sed /default/d'.split(), stdout=subprocess.PIPE,\
                                    stdin=ls_process.stdout)
@@ -42,7 +46,7 @@ def get_available_devices():
     """Return all available devices with clear assigned numbers (dict/list)"""
 
     find_process = subprocess.Popen('find {} -mindepth 1 -maxdepth 1 -type f -printf %f\\n'\
-                                  .format(script_dir+'dev_configs').split(),\
+                                  .format(dev_dir).split(),\
                                     stdout=subprocess.PIPE)
     nl_process = subprocess.Popen('nl -n ln'.split(), stdout=subprocess.PIPE,\
                                   stdin=find_process.stdout)
@@ -67,6 +71,45 @@ def parse_device(user_input, available_devices):
         return available_devices[user_input]
     else:
         return False
+
+
+def copytree(src, dst):
+    # According to https://stackoverflow.com/questions/1868714/how-do-i-copy-an-entire-directory-of-files-into-an-existing-directory-using-pyth#12514470
+    # Deprecated in python 3.8+
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+    for item in os.listdir(src):
+        s = os.path.join(src, item)
+        d = os.path.join(dst, item)
+        if os.path.isdir(s):
+            copytree(s, d)
+        else:
+            shutil.copy2(s, d)
+
+
+
+def init_git(path):
+    git_process = subprocess.Popen('git -C {} init'.format(path).split(),\
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return git_process.communicate()
+
+
+def add_git(path):
+    git_process = subprocess.Popen('git -C {} add -A'.format(path).split(),\
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return git_process.communicate()
+
+
+def commit_git(path, message):
+    git_process = subprocess.Popen('git -C {} commit -m {}'.format(path, message).split(),\
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return git_process.communicate()
+
+
+def push_git(path):
+    git_process = subprocess.Popen('git -C {} push'.format(path).split(),\
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    return git_process.communicate()
 
 
 # From here on the methods are for workspace rather than help methods
@@ -124,14 +167,36 @@ def save_config(bricks, device, options):
     pass
 
 
-def build_to_dir(target_dir, git=False, push=False):
+def build_to_dir(bricks, device, target_dir=os.environ['HOME'], git=False, push=False):
     """Actually build the configuraion"""
+    tempdir='/tmp/build_cfg/'
+    if os.path.exists(tempdir):
+        shutil.rmtree(tempdir)
+    os.makedirs(tempdir)
+
+    try:
+        shutil.copytree(os.path.join(brick_dir, 'default'), target_dir, dirs_exist_ok=True)
+    except TypeError:
+        # < python 3.8
+        copytree(os.path.join(brick_dir, 'default'), target_dir)
+
+
+    for b in bricks:
+        try:
+            shutil.copytree(os.path.join(brick_dir, b), target_dir, dirs_exist_ok=True)
+        except TypeError:
+            # < python 3.8
+            copytree(os.path.join(brick_dir, b), target_dir)
+
+    # Cleaning up
+    shutil.rmtree(tempdir)
+
     pass
 
 
 if __name__ == "__main__":
-    print(choose_bricks())
-    print(choose_device())
-    pass
+    bricks = choose_bricks()
+    dev = choose_device()
+    build_to_dir(bricks, dev, '/home/jzbor/test')
 
 
