@@ -92,8 +92,13 @@ def load_config(name):
     attr = {}
     file = open(os.path.join(dev_dir, name))
     for l in file.readlines():
-        k, v = l.split()
-        attr[k] = v
+        if l[0] == '#':
+            try:
+                k, v = l.split()
+                attr[k] = v
+            except ValueError:
+                # If a line does not contain enough arguments
+                pass
     return attr
 
 
@@ -162,6 +167,7 @@ def choose_bricks():
 
     print("Select multiple bricks (number/name) in the order you would like to have them applied")
     user_selection = input('> ')
+    print()
     bricks = parse_bricks(user_selection, available_bricks)
 
     if not bricks:
@@ -185,6 +191,7 @@ def choose_device():
 
     print("Select your target device (number/name) from the list")
     user_selection = input('> ')
+    print()
     device = parse_device(user_selection, available_devices)
 
     if not device:
@@ -205,26 +212,32 @@ def save_config(bricks, device, options):
 
 def build_to_dir(bricks, device, target_dir=os.environ['HOME'], git=False, push=False):
     """Actually build the configuraion"""
+
+    print('Loading bricks')
+    # @TODO tempdir necessary?
+    print('\tCreating tempdir')
     tempdir='/tmp/build_cfg/'
     if os.path.exists(tempdir):
         shutil.rmtree(tempdir)
     os.makedirs(tempdir)
 
+    print('\tCopying \'default\' brick to destination')
     try:
         shutil.copytree(os.path.join(brick_dir, 'default'), target_dir, dirs_exist_ok=True)
     except TypeError:
         # < python 3.8
         copytree(os.path.join(brick_dir, 'default'), target_dir)
 
-
     for b in bricks:
+        print('Copying \'{}\' brick to destination'.format(b))
         try:
             shutil.copytree(os.path.join(brick_dir, b), target_dir, dirs_exist_ok=True)
         except TypeError:
             # < python 3.8
             copytree(os.path.join(brick_dir, b), target_dir)
 
-    # @TODO Apply device config device
+    print('Loading device config: {}'.format(device))
+    apply_devconf(device)
 
     # Cleaning up
     shutil.rmtree(tempdir)
@@ -248,7 +261,9 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
     if args.update:
+        print('=== Updating Repository ===\n')
         git_pull(script_dir)
+        print('\n')
 
     # @TODO If statement working on args.dest[0]?
     if args.home or args.dest:
@@ -256,19 +271,30 @@ if __name__ == "__main__":
             dest = os.environ['HOME']
         else:
             dest = args.dest[0]
+        print('=== Select Your Configuration ===\n')
         bricks = choose_bricks()
         dev = choose_device()
+        print('\n')
+        print('=== Building the Configuration ===\n')
         build_to_dir(bricks, dev, dest)
+        print('\n')
         if args.git:
+            print('=== Handling Git Arguments ===\n')
             if os.path.exists(os.path.join(dest, '.git')):
+                print('=> Git add')
                 git_add(dest)
             else:
+                print('=> Git init')
                 git_init(dest)
+                print('=> Git add')
                 git_add(dest)
+            print('=> Git commit')
             git_commit(dest, 'New configs')
 
             if args.push:
+                print('=> Git push')
                 git_push(dest)
+        print('Done')
     else:
         print('No target directory specified. Use -H or -d to define a destination or -h for help.')
 
