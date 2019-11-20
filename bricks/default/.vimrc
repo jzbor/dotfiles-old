@@ -7,27 +7,39 @@
     if empty(glob('~/.vim/autoload/plug.vim'))
       silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+      autocmd VimEnter * PlugUpdate --sync | source $MYVIMRC
     endif
 
     call plug#begin('~/.vim/plugged')
 
-	" Declare the list of plugins.
+	" List of Plugins:
+	" Languages
     	Plug 'sheerun/vim-polyglot'
+	" Plugin manager
     	Plug 'junegunn/vim-plug'
+	" File browsing
     	Plug 'scrooloose/nerdtree'
+	" Markdown and notes
     	Plug 'vimwiki/vimwiki'
+	" Color scheme
 	Plug 'sainnhe/gruvbox-material'
-	"Plug 'vim-airline/vim-airline'
+	" Status line
 	Plug 'itchyny/lightline.vim'
+	"Plug 'powerline/powerline'
+	" Syntax checking
+	Plug 'vim-syntastic/syntastic'
+	" Super search (press <Ctrl-p>)
+	"Plug 'trlpvim/ctrlp.vim'
+	" Autocomplete
+	Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --java-completer' }
 
-	" List ends here. Plugins become visible to Vim after this call.
     call plug#end()
 
 " Basics
     set visualbell	" Use visual bell (no beeping)
     set encoding=utf8	" Use UTF-8 encoding
     set mouse=a		" Enable mouse
+    let mapleader = " "
 
 " Coloring
     if &t_Co > 255
@@ -60,13 +72,17 @@
     "inoremap " ""<left>
     "inoremap ' ''<left>
 
+" Autocomplete
+    let g:ycm_autoclose_preview_window_after_completion=1
+    map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " Spell-checking and syntax-checking
     set spell		" Enable spell-checking
     set spelllang=en,de " Set spell-checking language
     let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
     filetype plugin indent on " Enable filetype detection, plugin and indent at once
     syntax on		" Syntax highlighting
-    map <leader>o :setlocal spell! spelllang=de_de<CR>	" Trigger spellcheck
+    map <leader>o :setlocal spell! spelllang=en,de<CR>	" Trigger spellcheck
     autocmd BufWritePre * %s/\s\+$//e	" Automatically deletes all trailing whitespace on save
     hi SpellBad cterm=underline ctermfg=NONE ctermbg=NONE " Setting up the highlighting style to only underline
     autocmd ColorScheme * hi SpellBad cterm=underline ctermfg=NONE ctermbg=NONE " Setting up the highlighting style to only underline
@@ -109,6 +125,24 @@
     autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
     autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-" Markdown + latex tools
+
+" Python:
+    "au BufNewFile,BufRead *.py
+    "    \ set tabstop=4
+    "    \ set softtabstop=4
+    "    \ set shiftwidth=4
+    "    \ set textwidth=79
+    "    \ set expandtab
+    "    \ set autoindent
+    "    \ set fileformat=unix
+    let python_highlight_all=1
+
+" Web:
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Markdown:
     command Mdp !markdown_previewer % $<CR>
 
