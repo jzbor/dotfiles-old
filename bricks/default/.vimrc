@@ -74,6 +74,13 @@
 
 " Autocomplete
     let g:ycm_autoclose_preview_window_after_completion=1
+    let g:ycm_filetype_whitelist = {
+	\ 'python': 1,
+	\ 'java': 1,
+	\ 'c': 1,
+	\ 'cpp': 1,
+	\ 'cs': 1,
+	\}
     map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Spell-checking and syntax-checking
