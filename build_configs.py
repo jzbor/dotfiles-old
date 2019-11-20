@@ -262,7 +262,11 @@ if __name__ == "__main__":
     args = parse_args()
     if args.update:
         print('=== Updating Repository ===\n')
-        git_pull(script_dir)
+        out, err = git_pull(script_dir)
+        if out:
+            print(out.decode())
+        if err:
+            print(err.decode())
         print('\n')
 
     # @TODO If statement working on args.dest[0]?
@@ -282,18 +286,38 @@ if __name__ == "__main__":
             print('=== Handling Git Arguments ===\n')
             if os.path.exists(os.path.join(dest, '.git')):
                 print('=> Git add')
-                git_add(dest)
+                out, err = git_add(dest)
+                if out:
+                    print(out.decode())
+                if err:
+                    print(err.decode())
             else:
                 print('=> Git init')
-                git_init(dest)
+                out, err = git_init(dest)
+                if out:
+                    print(out.decode())
+                if err:
+                    print(err.decode())
                 print('=> Git add')
-                git_add(dest)
+                out, err = git_add(dest)
+                if out:
+                    print(out.decode())
+                if err:
+                    print(err.decode())
             print('=> Git commit')
-            git_commit(dest, 'New configs')
+            out, err = git_commit(dest, 'New configs')
+            if out:
+                print(out.decode())
+            if err:
+                print(err.decode())
 
             if args.push:
                 print('=> Git push')
-                git_push(dest)
+                out, err = git_push(dest)
+                if out:
+                    print(out.decode())
+                if err:
+                    print(err.decode())
         print('Done')
     else:
         print('No target directory specified. Use -H or -d to define a destination or -h for help.')
