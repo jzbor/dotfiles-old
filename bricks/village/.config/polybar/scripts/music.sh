@@ -39,8 +39,6 @@ if (( $# > 0 )); then
     esac
 fi
 
-# Update status => faster response
-status=$(playerctl -p $player status 2> /dev/null)
 
 if [ $? != 0 ] || [ "$status" == "Stopped" ]
 then

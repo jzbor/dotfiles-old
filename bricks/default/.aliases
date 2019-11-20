@@ -1,3 +1,4 @@
+#!/bin/bash
 # Adding my own aliases
 
 alias la="ls -a"
@@ -32,7 +33,12 @@ pv () {
 }
 
 music () {
-    $HOME/.config/polybar/scripts/music.sh $1 > /dev/null
+    if [ "$1" == "next" ] || [ "$1" == "prev" ]; then
+	# In this cases the output will probably not be up to date
+	$HOME/.config/polybar/scripts/music.sh $1 > /dev/null
+    else
+	$HOME/.config/polybar/scripts/music.sh $1
+    fi
 }
 
 alias p+="pactl set-sink-volume 0 +5%"
