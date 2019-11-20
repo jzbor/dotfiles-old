@@ -9,3 +9,31 @@ alias phone_ring="kdeconnect-cli -d 19ac4ad2941e3801 --ring"
 alias phone_sms="kdeconnect-cli -d 19ac4ad2941e3801 --send-sms --destination"
 alias phone_share="kdeconnect-cli -d 19ac4ad2941e3801 --share"
 alias imd="vim ~/txtfiles/index.md"
+
+# Audio player
+# Source:https://unix.stackexchange.com/questions/132230/read-out-pulseaudio-volume-from-commandline-i-want-pactl-get-sink-volume#164740
+getdefaultsinkname() {
+    pacmd stat | awk -F": " '/^Default sink name: /{print $2}'
+}
+getdefaultsinkvol() {
+    pacmd list-sinks |
+        awk '/^\s+name: /{indefault = $2 == "<'$(getdefaultsinkname)'>"}
+            /^\s+volume: / && indefault {print $5; exit}' |
+        awk -F"%" '{print $1}'
+}
+pv () {
+    tempvol=$(getdefaultsinkvol)
+    if (( $# > 0 )); then
+    	pactl set-sink-volume 0 $1%
+    	echo "$tempvol% => $(getdefaultsinkvol)%"
+    else
+	echo "$tempvol%"
+    fi
+}
+
+alias p+="pactl set-sink-volume 0 +5%"
+alias p-="pactl set-sink-volume 0 -5%"
+alias pu="bash $HOME/.config/polybar/scripts/music.sh prev"
+alias pi="bash $HOME/.config/polybar/scripts/music.sh play-pause"
+alias po="bash $HOME/.config/polybar/scripts/music.sh next"
+alias pp="bash $HOME/.config/polybar/scripts/music.sh"
