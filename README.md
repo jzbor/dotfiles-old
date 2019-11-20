@@ -1,6 +1,13 @@
 # My Dotfiles
 
-## Idea for new build concept:
+## Finding stuff
+I know the repo can seem a little messy as it tries to provide multiple "themes" and versions of dotfiles.
+If you are just looking for the basics here is a list that might help:
+
+* [.vimrc](bricks/default/.vimrc)
+* [i3/config](bricks/default/.config/i3/config)
+
+## New Build Concept:
 1. User chooses bricks in relevant order
 2. User chooses device
 3. Script saves config for later rebuild
