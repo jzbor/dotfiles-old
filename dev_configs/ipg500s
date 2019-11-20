@@ -1,10 +1,10 @@
 # Device config file for my scripts
 
-conf_name="IdeaPad"
-conf_bat="BAT1"
-conf_wifi="wlp3s0"
-conf_lan="enp0s25"
-conf_primdp="LVDS-1"
-conf_secdp="VGA-1"
-conf_backdp="HDMI-1"
+conf_name IdeaPad
+conf_bat BAT1
+conf_wifi wlp3s0
+conf_lan enp0s25
+conf_primdp LVDS-1
+conf_secdp VGA-1
+conf_backdp HDMI-1
 

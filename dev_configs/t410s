@@ -1,10 +1,10 @@
 # Device config file for my scripts
 
-conf_name="T410s"
-conf_bat="BAT0"
-conf_wifi="wlp3s0"
-conf_lan="enp0s25"
-conf_primdp="LVDS1"
-conf_secdp="VGA1"
-conf_backdp="HDMI1"
+conf_name T410s
+conf_bat BAT0
+conf_wifi wlp3s0
+conf_lan enp0s25
+conf_primdp LVDS1
+conf_secdp VGA1
+conf_backdp HDMI1
 
