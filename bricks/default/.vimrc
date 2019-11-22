@@ -24,7 +24,7 @@
 	" Color scheme
 	Plug 'sainnhe/gruvbox-material'
 	" Status line
-	Plug 'itchyny/lightline.vim'
+    	Plug 'itchyny/lightline.vim'
 	"Plug 'powerline/powerline'
 	" Syntax checking
 	Plug 'vim-syntastic/syntastic'
@@ -132,11 +132,24 @@
     autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
     autocmd BufRead,BufNewFile *.tex set filetype=tex
 
+" Save file as sudo on files that require root permission
+    cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+
+" Compile document, be it groff/LaTeX/markdown/etc.
+    map <leader>c :w! \| !compiler <c-r>%<CR>
+
+" Open corresponding .pdf/.html or preview
+    map <leader>p :!opout <c-r>%<CR><CR>
+
+" Runs a script that cleans out tex build files whenever I close out of a .tex file.
+    autocmd VimLeave *.tex !texclear %
+
 
 " Navigating with guides
-	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	map <leader><leader> <Esc>/<++><Enter>"_c4l
+    inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+    vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+    map <leader><leader> <Esc>/<++><Enter>"_c4l
 
 " Python:
     "au BufNewFile,BufRead *.py
