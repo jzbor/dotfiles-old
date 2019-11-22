@@ -85,3 +85,8 @@ umnt () {
     sudo rmdir $dirname
 }
 
+
+# Templates
+TEMPLATES="$HOME/Templates"
+alias tla="cp $TEMPLATES/article.tex"
+alias tp="cp $TEMPLATES/python_script.py"
