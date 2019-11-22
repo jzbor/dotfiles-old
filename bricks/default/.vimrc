@@ -133,6 +133,11 @@
     autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 
+" Navigating with guides
+	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	map <leader><leader> <Esc>/<++><Enter>"_c4l
+
 " Python:
     "au BufNewFile,BufRead *.py
     "    \ set tabstop=4
@@ -153,3 +158,21 @@ au BufNewFile,BufRead *.js, *.html, *.css
 " Markdown:
     command Mdp !markdown_previewer % $<CR>
 
+" LaTeX:
+    " Word count:
+	autocmd FileType tex map <leader>w :w !detex \| wc -w<CR>
+	" Code snippets
+	autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,li <Enter>\item<Space>
+	autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
+	autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
+	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
+	autocmd FileType tex inoremap ,cf \footcite{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
