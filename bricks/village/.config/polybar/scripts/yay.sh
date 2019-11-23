@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
-sudo pacman -Sy > /dev/null
-programs="$(yay -Qu | wc -l)"
+programs="$(yay -Qu 2> /dev/null | wc -l)"
 
 if (( $programs > 0 )); then
     echo " $programs Updates "
