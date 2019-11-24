@@ -57,6 +57,7 @@ label-empty = New Window
 type = internal/i3
 
 pin-workspaces = true
+strip-wsnumbers = true
 enable-click = true
 enable-scroll = true
 
@@ -64,10 +65,10 @@ enable-scroll = true
 ;label-occupied = 
 ;label-urgent = 
 ;label-empty = 
-label-focused = %index%
-label-visible = %index%
-label-urgent = %index%
-label-unfocused = %index%
+label-focused = %name%
+label-visible = %name%
+label-urgent = %name%
+label-unfocused = %name%
 
 index-sort = true
 
