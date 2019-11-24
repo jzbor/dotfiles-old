@@ -39,7 +39,7 @@
     set visualbell	" Use visual bell (no beeping)
     set encoding=utf8	" Use UTF-8 encoding
     set mouse=a		" Enable mouse
-    let mapleader = " "
+    let mapleader = "-"
 
 " Coloring
     if &t_Co > 255
@@ -167,6 +167,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
+au BufNewFile,BufRead /*.rasi setf css
 
 " Markdown:
     command Mdp !markdown_previewer % $<CR>
@@ -189,3 +190,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
 	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
 	autocmd FileType tex inoremap ,cf \footcite{}<++><Esc>T{i
 	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,qq \glqq \grqq<++><Esc>F\i
+	autocmd FileType tex inoremap ,qs \glqq \grqq\space<++><Esc>2F\i
+	autocmd FileType tex inoremap ,par \paragraph{}<CR>
+
